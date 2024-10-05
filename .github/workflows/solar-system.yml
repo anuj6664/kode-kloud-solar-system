@@ -13,15 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repository
-        uses: ./.github/actions/checkout@v4
+        uses: actions/checkout@v4
         
       - name: setup Nodejs version
-        uses: ./.github/actions/setup-node@v3
+        uses: actions/setup-node@v3
         with:
           node-version: 18
 
       - name: install dependencies
-        uses: npm install
+        run: npm install
       
       - name: unit testing
         run: npm test
