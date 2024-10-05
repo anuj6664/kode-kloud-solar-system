@@ -17,15 +17,12 @@ jobs:
     name: unit testing
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        operating-system: [ubuntu-latest, macos-latest]
         nodejs_version: [18, 19, 20]
         exclude:
           - nodejs_version: 18
             operating-system: macos-latest
-        include:
-          - images: amd64/alpine
-            os: ubuntu-latest
-    runs-on: ${{matrix.os}}
+    runs-on: ${{ matrix.operating-system }}
 
     steps:
       - name: checkout repository
