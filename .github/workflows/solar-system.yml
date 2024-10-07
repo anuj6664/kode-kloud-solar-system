@@ -28,8 +28,8 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v4
         
-      - name: setup Nodejs version
-        uses: actions/setup-node@v4 -  ${{ matrix.nodejs_version }}
+      - name: setup Nodejs version  - ${{ matrix.nodejs_version }}
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.nodejs_version }}
 
