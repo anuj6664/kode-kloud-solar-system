@@ -42,7 +42,32 @@ jobs:
       - name: Archieve test result-1
         uses: actions/upload-artifact@v4
         with:
-          name: dragon artifact
-          path: dragon.txt
+          name: unit test artifact
+          path: unit-test.txt
+  code-coverage:
+    name: code coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+        
+      - name: setup Nodejs version  - ${{ matrix.nodejs_version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.nodejs_version }}
+
+      - name: install dependencies
+        run: npm install
+      
+      - name: check code coverage
+        run: npm run coverage
+      
+      - name: Archieve test result
+        uses: actions/upload-artifact@v4
+        with:
+          name: code coverage
+          path: code-coverage.txt
+
 
           
