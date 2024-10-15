@@ -39,7 +39,7 @@ jobs:
       - name: cache npm dependencies
         uses: actions/cache@v4
         with:
-          path: ~/.npm
+          path: node_modules
           key: ${{ runner.os }}-node-modulus-${{ hashFiles('package-lock.json') }}
       
       - name: unit testing
