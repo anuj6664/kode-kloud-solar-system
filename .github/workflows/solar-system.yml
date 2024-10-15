@@ -35,6 +35,12 @@ jobs:
 
       - name: install dependencies
         run: npm install
+
+      - name: cache npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-modulus-${{ hashFiles('package-lock.json') }}
       
       - name: unit testing
         id: nodejs-unit-testing-id
