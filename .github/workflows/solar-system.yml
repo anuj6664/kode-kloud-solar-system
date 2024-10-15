@@ -66,8 +66,9 @@ jobs:
       - name: Archieve test result
         uses: actions/upload-artifact@v4
         with:
-          name: code coverage
-          path: code-coverage.txt
+          name: code coverage Result
+          path: coverage
+          retention-days: 5
 
 
           
