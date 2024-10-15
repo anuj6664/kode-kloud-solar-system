@@ -41,7 +41,7 @@ jobs:
         run: npm test
       
       - name: Archieve test result-1
-        if: failure() && steps.nodejs-unit-testing-id.outcome == 'failure' || steps.nodejs-unit-testing-id.outcome == 'success'
+        if: failure() && (steps.nodejs-unit-testing-id.outcome == 'failure' || steps.nodejs-unit-testing-id.outcome == 'success')
         uses: actions/upload-artifact@v4
         with:
           name: unit test artifact
