@@ -67,7 +67,13 @@ jobs:
 
       - name: install dependencies
         run: npm install
-      
+
+      - name: cache npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modulus-${{ hashFiles('package-lock.json') }}
+
       - name: check code coverage
         continue-on-error: true
         run: npm run coverage
